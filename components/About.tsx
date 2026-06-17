@@ -20,7 +20,7 @@ export default function About() {
           <div className="relative">
             <div className="overflow-hidden rounded-[32px] shadow-2xl">
           <Image
-  src="/images/hospital-building.jfif"
+  src="/images/hospital-building.jpg"
   alt="Hospital Building"
   width={800}
   height={800}
