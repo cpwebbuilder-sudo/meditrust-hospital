@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -25,24 +25,26 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-32 bg-white"
+      className="py-24 bg-gradient-to-b from-white to-slate-50"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6">
 
-      <div className="text-center mb-10 md:mb-14">
-  <span className="text-blue-200 uppercase tracking-wider font-semibold">
-    Patient Stories
-  </span>
+        <div className="text-center mb-16">
 
-  <h2 className="text-4xl md:text-6xl font-bold text-white mt-4">
-    Trusted By Thousands
-  </h2>
+          <span className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">
+            Patient Stories
+          </span>
 
-  <p className="mt-4 text-blue-100 max-w-2xl mx-auto">
-    Our patients trust us for compassionate care,
-    expert treatment, and exceptional healthcare services.
-  </p>
-</div>
+          <h2 className="mt-6 text-4xl md:text-5xl font-bold text-slate-900">
+            Trusted By Thousands
+          </h2>
+
+          <p className="mt-4 max-w-2xl mx-auto text-slate-600">
+            Our patients trust us for compassionate care,
+            expert treatment, and exceptional healthcare.
+          </p>
+
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8">
 
@@ -50,19 +52,28 @@ export default function Testimonials() {
             <div
               key={index}
               className="
-              bg-white
-              rounded-3xl
-              p-8
-              border
-              border-slate-200
-              shadow-sm
-              hover:shadow-xl
-              hover:-translate-y-2
-              transition-all
-              duration-300
+                relative
+                bg-white
+                rounded-3xl
+                p-8
+                border
+                border-slate-200
+                shadow-md
+                hover:shadow-2xl
+                hover:-translate-y-2
+                transition-all
+                duration-300
               "
             >
-              <div className="flex gap-1 mb-6">
+
+              <div className="absolute top-6 right-6">
+                <Quote
+                  size={40}
+                  className="text-blue-100"
+                />
+              </div>
+
+              <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
@@ -72,27 +83,22 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed min-h-[120px]">
                 "{item.review}"
               </p>
 
-              <div className="flex items-center gap-4 mt-8">
+              <div className="border-t border-slate-100 mt-6 pt-6">
 
-                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-lg">
-                  {item.name.charAt(0)}
-                </div>
+                <h4 className="font-bold text-slate-900 text-lg">
+                  {item.name}
+                </h4>
 
-                <div>
-                  <h4 className="font-bold text-slate-900">
-                    {item.name}
-                  </h4>
-
-                  <p className="text-sm text-slate-500">
-                    {item.role}
-                  </p>
-                </div>
+                <p className="text-blue-600 text-sm font-medium">
+                  {item.role}
+                </p>
 
               </div>
+
             </div>
           ))}
 

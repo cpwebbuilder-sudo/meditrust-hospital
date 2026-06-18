@@ -35,51 +35,101 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-white">
-      <div className="max-w-4xl mx-auto px-6">
-        <p className="text-blue-600 font-semibold text-center uppercase tracking-wide">
-  FAQ
-</p>
+    <section
+      id="faq"
+      className="py-24 bg-gradient-to-b from-slate-50 to-white"
+    >
+      <div className="max-w-5xl mx-auto px-6">
 
-<h2 className="text-3xl md:text-5xl font-bold text-slate-900 text-center mt-4">
-  Frequently Asked Questions
-</h2>
+        <div className="text-center mb-16">
 
-<p className="text-slate-600 text-center mt-4 mb-12">
-  Find answers to common questions about our hospital services.
-</p>
+          <span className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">
+            FAQ
+          </span>
 
-        <div className="space-y-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-6">
+            Frequently Asked Questions
+          </h2>
+
+          <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+            Find answers to common questions about appointments,
+            insurance, consultations and hospital services.
+          </p>
+
+        </div>
+
+        <div className="space-y-5">
+
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm"
+              className={`
+                rounded-3xl
+                border
+                overflow-hidden
+                transition-all
+                duration-300
+                ${
+                  open === index
+                    ? "border-blue-200 bg-blue-50 shadow-lg"
+                    : "border-slate-200 bg-white hover:shadow-md"
+                }
+              `}
             >
               <button
                 onClick={() =>
                   setOpen(open === index ? null : index)
                 }
-                className="w-full flex items-center justify-between px-6 py-5 text-left"
+                className="w-full flex items-center justify-between p-6 text-left"
               >
-                <span className="font-semibold text-lg text-slate-900">
-                  {faq.question}
-                </span>
+
+                <div className="flex items-center gap-5">
+
+                  <div
+                    className={`
+                      w-12 h-12 rounded-2xl
+                      flex items-center justify-center
+                      font-bold
+                      ${
+                        open === index
+                          ? "bg-blue-600 text-white"
+                          : "bg-blue-100 text-blue-700"
+                      }
+                    `}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+
+                  <h3 className="text-lg md:text-xl font-semibold text-slate-900">
+                    {faq.question}
+                  </h3>
+
+                </div>
 
                 <ChevronDown
-                  className={`transition-transform duration-300 ${
-                    open === index ? "rotate-180" : ""
-                  }`}
+                  size={24}
+                  className={`
+                    transition-transform duration-300
+                    text-blue-600
+                    ${open === index ? "rotate-180" : ""}
+                  `}
                 />
+
               </button>
 
               {open === index && (
-                <div className="px-6 pb-5 text-gray-600">
-                  {faq.answer}
+                <div className="px-6 pb-6 pl-[92px]">
+                  <p className="text-slate-600 leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               )}
+
             </div>
           ))}
+
         </div>
+
       </div>
     </section>
   );

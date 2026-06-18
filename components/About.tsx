@@ -12,41 +12,55 @@ const features = [
 
 export default function About() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-slate-50">
+    <section
+      id="about"
+      className="py-20 md:py-28 bg-slate-50"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
+
+        <div className="grid lg:grid-cols-2 gap-24 items-center">
+
           {/* Left Side */}
-          <div className="relative">
+          <div className="relative max-w-[520px] mx-auto w-full">
+
             <div className="overflow-hidden rounded-[32px] shadow-2xl">
-          <Image
-  src="/images/hospital-building.jpg"
-  alt="Hospital Building"
-  width={800}
-  height={800}
-  className="w-full h-[350px] md:h-[500px] lg:h-[600px] object-cover"
-/>
+              <Image
+                src="/images/hospital-building.jpg"
+                alt="Hospital Building"
+                width={800}
+                height={800}
+                className="w-full h-[350px] md:h-[450px] lg:h-[540px] object-cover"
+              />
             </div>
 
-            {/* Floating Stats */}
-            <div className="absolute bottom-4 right-4 md:-bottom-6 md:-right-6 bg-white rounded-3xl shadow-xl p-4 md:p-6">
+            {/* Floating Card */}
+            <div className="absolute bottom-4 right-4 md:-bottom-6 md:-right-6 bg-white rounded-3xl shadow-xl px-6 py-5">
               <h3 className="text-4xl font-bold text-blue-900">
                 50K+
               </h3>
-              <p className="text-slate-600">
+
+              <p className="text-slate-600 font-medium">
                 Happy Patients
               </p>
             </div>
+
           </div>
 
           {/* Right Side */}
-          <div>
+          <div className="max-w-xl">
+
             <span className="text-blue-700 font-semibold uppercase tracking-wider">
               About MediTrust
             </span>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Providing Trusted Healthcare For Every Generation
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 mt-4">
+              Providing Trusted
+              <span className="block">
+                Healthcare For
+              </span>
+              <span className="block">
+                Every Generation
+              </span>
             </h2>
 
             <p className="mt-6 text-lg text-slate-600 leading-relaxed">
@@ -58,11 +72,13 @@ export default function About() {
             <p className="mt-4 text-slate-600 leading-relaxed">
               Our team of experienced doctors, advanced medical
               facilities, and patient-first approach ensure the
-              highest standards of healthcare for individuals and
-              families.
+              highest standards of healthcare for individuals
+              and families.
             </p>
 
+            {/* Features */}
             <div className="grid md:grid-cols-2 gap-4 mt-8">
+
               {features.map((item, index) => (
                 <div
                   key={index}
@@ -70,7 +86,7 @@ export default function About() {
                 >
                   <CheckCircle2
                     size={20}
-                    className="text-green-600"
+                    className="text-green-600 shrink-0"
                   />
 
                   <span className="text-slate-700">
@@ -78,44 +94,52 @@ export default function About() {
                   </span>
                 </div>
               ))}
+
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 md:gap-6 mt-10">
+            <div className="grid grid-cols-3 gap-8 mt-10">
+
               <div>
-                <h3 className="text-3xl font-bold text-blue-900">
+                <h3 className="text-4xl font-bold text-blue-900">
                   15+
                 </h3>
-                <p className="text-slate-600 text-sm">
+
+                <p className="text-slate-600 text-sm mt-1">
                   Years Experience
                 </p>
               </div>
 
               <div>
-                <h3 className="text-3xl font-bold text-blue-900">
+                <h3 className="text-4xl font-bold text-blue-900">
                   20+
                 </h3>
-                <p className="text-slate-600 text-sm">
+
+                <p className="text-slate-600 text-sm mt-1">
                   Specialists
                 </p>
               </div>
 
               <div>
-                <h3 className="text-3xl font-bold text-blue-900">
+                <h3 className="text-4xl font-bold text-blue-900">
                   98%
                 </h3>
-                <p className="text-slate-600 text-sm">
+
+                <p className="text-slate-600 text-sm mt-1">
                   Satisfaction
                 </p>
               </div>
+
             </div>
 
-            <button className="mt-10 bg-blue-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-800 transition">
+            <button className="mt-10 bg-blue-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-800 transition-all duration-300 shadow-lg">
               Learn More
             </button>
+
           </div>
 
         </div>
+
       </div>
     </section>
   );
